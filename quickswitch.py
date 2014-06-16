@@ -147,6 +147,9 @@ def create_lookup_table(windows):
         if name.startswith("i3bar for output"):
             # this is an i3bar, ignore it.
             continue
+        if name in lookup:
+            # duplicate name of previous window -- add "(_id)" as suffix in attempt to make unique
+            name = name + " (" + str(_id) + ")"
         lookup[name] = id_
     return lookup
 
